@@ -1,0 +1,130 @@
+#include <stdio.h>
+
+    int main(){
+        // Variáveis Carta 1
+        char estado1, codigo1[4], cidade1[20];
+        int pontosturisticos1;
+        float area1, pib1;
+        unsigned long int populacao1;
+
+        // Variáveis Carta 2
+        char estado2, codigo2[4], cidade2[20];
+        int pontosturisticos2;
+        float area2, pib2;
+        unsigned long int populacao2;
+
+        // --- Cadastro da Carta 1 ---
+        printf("-Cadastro Carta 1-\n");
+
+        printf("Estado uma letra(A-H):");
+        scanf(" %c", &estado1);
+
+        printf("Código da Carta (ex:A01):");
+        scanf(" %s", &codigo1);
+
+        printf("Nome da Cidade:");
+        scanf(" %s", &cidade1);
+
+        printf("População:");
+        scanf( "%lu", &populacao1);
+
+        printf("Área em km²:");
+        scanf(" %f", &area1);
+
+        printf("PIB:");
+        scanf(" %f", &pib1);
+
+        printf("Numero de Pontos Turísticos:");
+        scanf(" %d", &pontosturisticos1);
+
+        // --- Cadastro da Carta 2 ---
+        
+        printf("-Cadastro Carta 2-\n");
+
+        printf("Estado uma letra(A-H):");
+        scanf(" %c", &estado2);
+
+        printf("Código da Carta (ex:A02):");
+        scanf(" %s", &codigo2);
+
+        printf("Nome da Cidade:");
+        scanf(" %s", &cidade2);
+
+        printf("População:");
+        scanf( "%lu", &populacao2);
+
+        printf("Área em km²:");
+        scanf(" %f", &area2);
+
+        printf("PIB:");
+        scanf(" %f", &pib2);
+
+        printf("Numero de Pontos Turísticos:");
+        scanf(" %d", &pontosturisticos2);
+
+        // --- Operação Densidade/PIB per capta ---
+
+        float densidade1, densidade2, pibpercapta1, pibpercapta2;
+
+        //Densidade
+        densidade1 = populacao1 / area1;
+        densidade2 = populacao2 / area2;
+
+        //Pib per capta
+        pibpercapta1 = pib1 / populacao1;
+        pibpercapta2 = pib2 / populacao2;
+
+        //Calculando Super Poder
+
+        float superpoder1, superpoder2;
+        superpoder1 = populacao1 + area1 + pib1 + pontosturisticos1 + pibpercapta1 + (1/densidade1) + densidade1;
+        superpoder2 = populacao2 + area2 + pib2 + pontosturisticos2 + pibpercapta2 + (1/densidade2) + densidade2;
+
+        // --- Exibição dos Dados ---
+        printf("---CARTAS CADASTRADAS---\n");
+
+        // Exibição Carta 1
+        printf("Carta 1:\n");
+        printf("Estado: %c\n", estado1);
+        printf("Código: %s\n", codigo1);
+        printf("Nome da Cidade: %s\n", cidade1);
+        printf("População: %lu\n", populacao1);
+        printf("Área: %.2f km²\n", area1);
+        printf("PIB: %.2f bilhões de reais\n", pib1);
+        printf("Pontos Turísticos: %d\n", pontosturisticos1);
+        printf("Densidade Populacional: %.2f hab/km² \n", densidade1);
+        printf("Pib per capta: %.2f reais\n", pibpercapta1);
+        printf("Super Poder:%2.f\n", superpoder1);
+
+        printf("\n");
+
+        // Exibição Carta 2
+        printf("Carta 2:\n");
+        printf("Estado: %c\n", estado2);
+        printf("Código: %s\n", codigo2);
+        printf("Nome da Cidade: %s\n", cidade2);
+        printf("População: %lu\n", populacao2);
+        printf("Área: %.2f km²\n", area2);
+        printf("PIB: %.2f bilhões de reais\n", pib2);
+        printf("Pontos Turísticos: %d\n", pontosturisticos2);
+        printf("Densidade Populacional: %.2f hab/km² \n", densidade2);
+        printf("Pib per capta: %.2f reais\n", pibpercapta2);
+        printf("Super Poder:%2.f\n", superpoder2);
+
+        //comparamdo cartas
+
+        printf("Agora vamos ver qual é o mais forte!\n");
+
+        printf(\
+                "População 1 é maior que 2? %d\n \
+             Área 1 é maior que 2? %d \n \
+             Pib 1 é maior que 2: %d\n \
+             Carta 1 tem mais pontos turisticos que a 2? %d\n\
+             Densidade da 1 é menor do que da 2?%d\n\
+             Pib per Capta 1 é maior do que 2? %d\n\
+             Super Poder de 1 é maior do que 2? %d\n"\
+             ,(populacao1>populacao2), (area1>area2), (pib1>pib2), (pontosturisticos1>pontosturisticos2)\
+             , (densidade1<densidade2), (pibpercapta1>pibpercapta2), (superpoder1>superpoder2));
+
+        return 0;
+    }
